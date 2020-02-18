@@ -146,9 +146,11 @@ export const pageQuery = graphql`
     }
   }
     allCodewaveBlogPost(
-      limit: 2000
-      sort: { fields: [flotiqInternal___updatedAt], order: DESC }
-      filter: {tags: {elemMatch: {tag: {eq: $tag}}}}
+      limit: 2000, 
+      sort: {fields: [flotiqInternal___updatedAt], order: DESC}, 
+      filter: {
+        tags: {elemMatch: {tag: {eq: $tag}}}, 
+        status: {eq: "public"}}
     ) {
       edges {
       node {

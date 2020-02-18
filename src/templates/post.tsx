@@ -365,7 +365,7 @@ export const query = graphql`
         }
       }
     }
-    codewaveBlogPost( slug: { eq: $slug } ) {
+    codewaveBlogPost( slug: { eq: $slug }, status: {eq: "public"} ) {
       excerpt
       title
       content
@@ -393,7 +393,7 @@ export const query = graphql`
       }
     }
     relatedPosts: allCodewaveBlogPost(
-      filter:{tags: {elemMatch: {tag: {eq:  $primaryTag } } } }
+      filter:{tags: {elemMatch: {tag: {eq:  $primaryTag } } }, status: {eq: "public"} }
       limit: 3
     ) {
       totalCount

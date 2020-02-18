@@ -185,7 +185,11 @@ export const pageQuery = graphql`
         id
       }
     }
-    allCodewaveBlogPost(sort: {fields: flotiqInternal___updatedAt, order: DESC}, limit: 2000) {
+    allCodewaveBlogPost(
+        sort: {fields: flotiqInternal___updatedAt, order: DESC}, 
+        limit: 2000, 
+        filter: {status: {eq: "public"}}
+    ) {
           edges {
           node {
             content
