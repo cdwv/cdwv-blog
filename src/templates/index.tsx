@@ -195,9 +195,10 @@ export const pageQuery = graphql`
       }
     }
     allCodewaveBlogPost(
-      sort: { fields: [codewaveInternal___updatedAt], order: DESC },
+      sort: { fields: [flotiqInternal___updatedAt], order: DESC },
       limit: $limit,
-      skip: $skip
+      skip: $skip,
+      filter: {status: {eq: "public"}}
     ) {
       edges {
       node {
@@ -224,7 +225,7 @@ export const pageQuery = graphql`
           }
           bio
         }
-        codewaveInternal {
+        flotiqInternal {
           createdAt
         }
       }
